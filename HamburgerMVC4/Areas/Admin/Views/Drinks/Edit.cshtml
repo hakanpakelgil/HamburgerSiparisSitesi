@@ -1,0 +1,49 @@
+﻿@model DrinkViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div style="margin-top:150px; padding:50px" class="container detail-card ">
+
+    <h1 class="detail-card" style="font-family:Kristi; font-size:4rem;"> Drink Edit</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <img style="width:50%; aspect-ratio: 16/9; object-fit: contain" src="~/image/drinks/@Model.ImagePath" />
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="ImagePath" />
+                <div class="mb-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-between">
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                    <div>
+                        <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

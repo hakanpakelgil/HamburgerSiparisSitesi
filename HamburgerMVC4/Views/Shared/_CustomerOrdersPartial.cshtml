@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+
+@if (!(User.IsInRole("Administrator")))
+{
+    <div class="">
+        <a class="nav-link" asp-area="" asp-controller="Customer" asp-action="OrderInfo" title="Manage">My Orders</a>
+    </div>
+}

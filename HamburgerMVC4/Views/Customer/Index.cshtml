@@ -1,0 +1,103 @@
+﻿@model OrderViewModel
+
+@if (ViewBag.DrinkError != null)
+{
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-12 col-md-9 col-lg-8 text-center">
+            <div class="alert alert-danger mt-3">
+                <h3 class="display-6 text-center text-danger">@ViewBag.DrinkError!</h3>
+            </div>
+        </div>
+    </div>
+}
+
+<form method="post">
+    <div class="row mt-3 mb-5">
+        <div class="col-lg-5">
+            <div class="menu">
+                <h2>@ViewBag.Menu.Name</h2>
+                <p>@ViewBag.Menu.Description</p>
+                <p class="text-muted">@ViewBag.Menu.UnitPrice ₺</p>
+                <div>
+                    <input hidden value="@ViewBag.Menu.Id" asp-for="MenuId" />
+                    <img width="100%" src="~/image/menus/@ViewBag.Menu.Image" />
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-7">
+            <div class="menu">
+                <div class="menu">
+                    <h3>Size: </h3>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                @Html.RadioButtonFor(model => model.Size, "Small", new { @class = "form-check-input", id = "smallRadio" })
+                                <label class="form-check-label" for="smallRadio">Small</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                @Html.RadioButtonFor(model => model.Size, "Medium", new { @class = "form-check-input", id = "mediumRadio" })
+                                <label class="form-check-label" for="mediumRadio">Medium</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                @Html.RadioButtonFor(model => model.Size, "Large", new { @class = "form-check-input", id = "largeRadio" })
+                                <label class="form-check-label" for="largeRadio">Large</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu">
+                    <h3>Sauce: </h3>
+                    <hr />
+                    <p>More than 2 sauces will be charged extra.</p>
+                    <div class="row row-cols-3 d-flex justify-content-around">
+
+                        @for (int i = 0; i < ViewBag.Extras.Count; i++)
+                        {
+                            <div class="col">
+                                <label class="form-check-label" for="extra_@i">
+                                    @Html.CheckBoxFor(m => m.ExtraBools[i], new { @class = "form-check-input", id = "extra_" + i })
+
+                                    @ViewBag.Extras[i] (@ViewBag.Extras[i].UnitPrice ₺)
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="menu">
+
+                    <div class="form-group">
+                        <h3>Drinks:</h3>
+                        <hr />
+                        <div class="row">
+                            @foreach (var drink in ViewBag.Drinks)
+                            {
+                                <div class="menu col-sm-3">
+
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" value="@drink.Id" asp-for="DrinkId" />
+                                        @drink.Name <img class="topping-image" width="100%" style="aspect-ratio: 4/3; object-fit: contain" src="~/image/drinks/@drink.Image" alt="@drink.Name">
+                                    </label>
+                                    <br>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <button class="btn btn-success px-5 py-2" type="submit">CONFIRM</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+

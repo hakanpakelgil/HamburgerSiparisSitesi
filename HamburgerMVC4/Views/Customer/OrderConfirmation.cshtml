@@ -1,0 +1,41 @@
+﻿@model OrderViewModel
+@{
+    int selectedMenu = @ViewBag.Menu[0].Id;
+
+}
+<div class="container my-5">
+    <div class="detail-card d-flex justify-content-center"><h2> Do you confirm your order ? </h2></div>
+    <form asp-action="OrderSummary" method="post">
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-12 col-md-9 col-lg-8 text-center">
+                <hr />
+                <h3 class="">Menu Name</h3>
+                @foreach (var item in ViewBag.menu)
+                {
+                    <div class="summary mb-4">@item.Name (@Model.Size)</div>
+                }
+                <h3 class="">Drink</h3>
+                @foreach (var item in ViewBag.Drink)
+                {
+                    <div class="summary mb-4">@item.Name</div>
+                }
+                <h3 class="">Extras</h3>
+                <div class="summary mb-4">
+                    @(string.Join(", ", ((List<Extra>)ViewBag.Extras).Select(x => x.Name)))
+                </div>
+                <h3 class="">Total Price</h3>
+                <div class="summary mb-4">@(((double)Model.Price!).ToString("c2"))</div>
+                <hr />
+            </div>
+            <div class="col-sm-12">
+                <div class=" d-flex justify-content-around">
+                    <a type="submit" asp-controller="Customer" asp-action="OrderSummary" class="btn btn-success">Confirm</a>
+                    <a asp-area="" asp-controller="Customer" asp-action="Index" asp-route-id="@selectedMenu" class="btn btn-danger">Back</a>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+
+</div>

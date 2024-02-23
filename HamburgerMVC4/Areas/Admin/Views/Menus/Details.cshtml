@@ -1,0 +1,30 @@
+﻿@model HamburgerMVC4.Data.Menu
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="container py-4">
+<h1 style="font-family:Kristi; font-size:4rem;">Menu Details</h1>
+
+    <div class="detail-card">
+        <div class="row">
+            <div class="col-md-7">
+
+                <p>@Html.DisplayNameFor(model => model.Name) : @Model.Name</p>
+                <p>@Html.DisplayNameFor(model => model.Description) : @Model.Description</p>
+                <p>@Html.DisplayNameFor(model => model.UnitPrice): @Model.UnitPrice</p>
+                <div>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
+                    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                </div>
+
+            </div>
+                    <div class="col-md-5">
+                        <img style="height:200px" src="~/image/menus/@Model.Image" />
+                    </div>
+        </div>
+
+    </div>
+</div>

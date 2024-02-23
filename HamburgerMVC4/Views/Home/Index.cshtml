@@ -1,0 +1,37 @@
+﻿@model List<Menu>
+@{
+    ViewData["Title"] = "Boost Burger";
+}
+
+<div class="container-lg">
+
+
+    @if (ViewBag.Category != null)
+    {
+        <h1 class="permanent-marker-regular category-name text-center mt-4"> @ViewBag.Category Menus </h1>
+        <hr />
+    }
+
+
+    <div class="mt-4 mx-5">
+        <div class="row justify-content-center g-5">
+            @foreach (var menu in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="menu-card">
+                        <img src="~/image/menus/@menu.Image" class="card-img-top mt-3 p-3" style="aspect-ratio: 16/9; object-fit: contain;" alt="...">
+                        <div class="card-body">
+                            <h3 class="card-title mb-5">@menu.Name</h3>
+                            <p class="card-text mb-3">@menu.Description</p>
+                            <div class="d-flex justify-content-between mx-3">
+                                <span class="unit-price">@menu.UnitPrice.ToString("c2")</span>
+                                <a class="btn btn-danger" asp-controller="Customer" asp-action="Index" asp-route-id="@menu.Id">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

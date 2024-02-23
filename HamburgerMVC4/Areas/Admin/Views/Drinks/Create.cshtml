@@ -1,0 +1,46 @@
+﻿@model DrinkViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div style="margin-top:150px; padding:50px" class="container detail-card">
+    <h1 style="font-family:Kristi; font-size:4rem;" class="detail-card">Create Drink</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            @if (ViewBag.ErrorMessage != null)
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" placeholder="Image" />
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                    <div>
+                        <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

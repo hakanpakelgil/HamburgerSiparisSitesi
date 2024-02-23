@@ -1,0 +1,36 @@
+﻿@model HamburgerMVC4.Data.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div style="margin-top:150px; padding:50px" class="container detail-card">
+    <h1 style="font-family:Kristi; font-size:4rem;" class="detail-card">Create Categories</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-between">
+                <div class="mb-3">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+
+                <div>
+                    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,28 @@
+﻿@model HamburgerMVC4.Data.Category
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div style="margin-top:150px; padding:50px;" class="container detail-card">
+
+    <h3>Are you sure you want to delete this?</h3>
+    <hr />
+    <div>
+        <dl class="row">
+
+            <dt class="col-sm-2 mb-3">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10 mb-3">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+        </form>
+    </div>
+</div>

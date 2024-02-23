@@ -1,0 +1,157 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", "Helvetica", sans-serif;
+    transition: background-color 0.2s;
+    will-change: background-color;
+    background-color: rgb(220, 220, 200);
+}
+
+.header-div {
+    position: relative;
+}
+
+.header-div::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   height: 100%;
+   background: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.7));
+ }
+
+.header-image {
+    width: 100%;
+    aspect-ratio: 16/5;
+    object-fit: cover;
+}
+
+.header-text {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    font-size: 10vw;
+    font-family: "Kristi";
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    z-index: 1;
+}
+
+
+.nav-link {  
+    color: antiquewhite;
+}
+
+.nav-link:hover{
+    color:orange;
+}
+
+.summary {
+    font-size: 1.5rem;
+    color: orangered;
+}
+
+.customLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Kristi";
+    font-size: 2.3rem;
+}
+
+.navbar-customLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+
+.navigation {
+    background-color: rgb(38, 38, 37);
+    border: 1px solid black;
+}
+
+.menu-card {
+    text-align: center;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border-radius: 3%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin: 10px 0 20px 0;
+}
+.card-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 12rem;
+}
+.unit-price {
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: darkred;
+}
+
+.menu {
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin: 20px 20px 0 20px;
+    border: 1px solid antiquewhite;
+}
+
+.card-signUp {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 4%;
+    padding: 50px;
+
+
+}
+.category-name {
+    font-family: "Kristi";
+    font-size:5rem;
+}
+
+.detail-card {
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.customer-card {
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    color:black
+}
+
+.permanent-marker-regular {
+    font-family: "Permanent Marker", cursive;
+    font-weight: 200;
+    font-size: 50px;
+    font-style: normal;
+}

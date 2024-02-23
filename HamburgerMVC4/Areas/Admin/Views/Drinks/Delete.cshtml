@@ -1,0 +1,28 @@
+﻿@model HamburgerMVC4.Data.Drink
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div style="margin-top:150px; padding: 50px;" class="container detail-card">
+    <h3 class="detail-card">Are you sure you want to delete this?</h3>
+    <div>
+
+        <hr />
+        <img height="300px" src="~/image/drinks/@Model.Image" />
+        <dl class="row mt-3">
+            <dt class="col-sm-1">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-11">
+               : @Html.DisplayFor(model => model.Name)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@model MenuViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+<hr />
+<div class="container detail-card">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="font-family:Kristi; font-size:4rem;" class="detail-card">Menu Edit</h1>
+            <div class="d-flex justify-content-center align-item-center">
+                <img style="height:300px" src="~/image/menus/@ViewBag.Image" />
+            </div>
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea type="text" asp-for="Description" rows="4" class="form-control md-textarea" placeholder="Description.."></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="UnitPrice" class="control-label"></label>
+                    <input asp-for="UnitPrice" class="form-control" />
+                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input asp-for="Image" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div>
+                    <select class="form-select" asp-for="CategoryId">
+                        <option class="form-control" value="">Please select a category</option>
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.Id">@category.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="d-flex justify-content-between mt-3">
+                <div class="mb-3">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+                <div>
+                    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

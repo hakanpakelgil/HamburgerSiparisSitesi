@@ -1,0 +1,46 @@
+﻿@model ExtraViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<div style="margin-top:150px; padding:50px;" class="container detail-card">
+    <h1 class="detail-card" style="font-family:Kristi; font-size:4rem;">Extra Edit</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="mb-3">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="UnitPrice" class="control-label"></label>
+                    <input type="number" asp-for="UnitPrice" class="form-control" />
+                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                </div>
+                <div class="d-flex justify-content-between">
+                <div class="mb-3">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+                <div>
+                    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }

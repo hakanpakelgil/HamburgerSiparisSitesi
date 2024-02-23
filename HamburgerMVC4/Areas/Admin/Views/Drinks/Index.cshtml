@@ -1,0 +1,52 @@
+﻿@model IEnumerable<HamburgerMVC4.Data.Drink>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container-fluid pt-4 px-4">
+    <h2 style="font-family:Kristi; font-size:3rem;">All Drinks</h2>
+    <div class="d-flex justify-content-end mb-4">
+        <a class="btn btn-success btn-lg mt-2" asp-action="Create">Create New</a>
+    </div>
+    <div class="bg-light text-center rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+        </div>
+        <div class="table-responsive">
+            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Image)
+                        </th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="col-5">@item.Name</td>                        
+                            <td class="col-5 text-center"><img height="100px" src="~/image/drinks/@item.Image" /> </td>
+                            <td class="col-2">
+                                <div class="d-flex justify-content-around">
+                                    <a class="btn btn-warning mb-1" asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="btn btn-secondary mb-1" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info"></i></a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+         
+            </table>
+            
+        </div>
+    </div>
+</div>

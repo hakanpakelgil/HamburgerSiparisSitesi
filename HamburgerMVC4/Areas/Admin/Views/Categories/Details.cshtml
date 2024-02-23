@@ -1,0 +1,30 @@
+﻿@model HamburgerMVC4.Data.Category
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="container detil-card">
+    <h1 style="font-family:Kristi; font-size:4rem;">Category Details</h1>
+
+    <div class="detail-card">
+        <div class="row">
+            <div class="col-md-7">
+
+                <p>@Html.DisplayNameFor(model => model.Name) : @Model.Name</p>  
+
+                <div>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
+                    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                </div>
+
+            </div>
+            <div class="col-md-5">
+                
+            </div>
+        </div>
+
+    </div>
+</div>

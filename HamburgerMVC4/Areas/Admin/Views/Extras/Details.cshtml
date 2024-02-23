@@ -1,0 +1,30 @@
+﻿@model HamburgerMVC4.Data.Extra
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div style="margin-top:150px; padding:50px;" class="container detail-card">
+
+    <h1 class="detail-card" style="font-family:Kristi; font-size:4rem;">Extra Details</h1>
+
+    <div class="detail-card">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <p style="margin-bottom:3px">@Html.DisplayNameFor(model => model.Name) : @Model.Name</p>
+                <p>@Html.DisplayNameFor(model => model.UnitPrice): @Model.UnitPrice₺ </p>
+                <div>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
+                    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                </div>
+
+            </div>
+        
+        </div>
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,22 @@
+﻿@model List<Order>
+
+<table class="table">
+    <thead>
+        <tr>            
+            <th scope="col">Menu</th>
+            <th scope="col">Drink</th>
+            <th scope="col">Extras</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>            
+                <td>@item.Menu.Name</td>
+                <td>@item.Drink.Name</td>
+                <td>@(string.Join(",", item.Extras.Select(x => x.Name)))
+                </td>
+            </tr>
+        }               
+    </tbody>
+</table>

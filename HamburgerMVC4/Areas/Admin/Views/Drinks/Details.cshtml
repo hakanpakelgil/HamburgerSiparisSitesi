@@ -1,0 +1,33 @@
+﻿@model HamburgerMVC4.Data.Drink
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+
+<div style="margin-top:150px; padding:50px" class="container detail-card">
+    <h1 class="detail-card" style="font-family:Kristi; font-size:4rem;">Drink Details</h1>
+
+    <div class="row">
+        <div class="col-md-7 ">
+
+            <p style="font-size:25px;" class="mb-3">@Html.DisplayNameFor(model => model.Name) : @Model.Name</p>
+
+            <div class="mt-5">
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
+                <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+            </div>
+
+        </div>
+        <div class="col-md-5">
+            <img style="height:200px" src="~/image/drinks/@Model.Image" />
+        </div>
+    </div>
+
+
+</div>
+
+
+
